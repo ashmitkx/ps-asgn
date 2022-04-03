@@ -1,5 +1,6 @@
 import { Chat } from '../models/chat.model.js';
 
+// unused
 export async function createChat(req, res, next) {
     const { userIds } = req.body;
 
@@ -10,7 +11,7 @@ export async function createChat(req, res, next) {
         console.error(e);
         return next(e);
     }
-    
+
     res.status(201).json(chat);
 }
 
@@ -25,14 +26,14 @@ export async function getMessages(req, res, next) {
         console.error(e);
         return next(e);
     }
-    
-    res.json(chat.messages);
+
+    res.json(chat.messages.reverse());
 }
 
 export async function postMessage(req, res, next) {
     const { id: chatId } = req.params;
     const { userId, text } = req.body;
-    
+
     // get chat document
     let chat;
     try {
@@ -41,16 +42,20 @@ export async function postMessage(req, res, next) {
         console.error(e);
         return next(e);
     }
-    
+
+    // add new message to the start of the array
     const newMessage = { userId, text };
     chat.messages.unshift(newMessage);
-    
+
+    // update lastActive timestamp
+    chat.lastActive = new Date();
+
     try {
         await chat.save();
     } catch (e) {
         console.error(e);
         return next(e);
     }
-    
+
     res.status(201).json(chat.messages[0]);
 }

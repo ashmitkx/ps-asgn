@@ -8,16 +8,23 @@ const chatSchema = new Schema({
             ref: 'user'
         }
     ],
+    lastActive: {
+        type: Date,
+        default: () => new Date(),
+        required: true
+    },
     messages: [
         {
             text: String,
             timestamp: {
                 type: Date,
-                default: () => new Date()
+                default: () => new Date(),
+                required: true
             },
             userId: {
                 type: Schema.Types.ObjectId,
-                ref: 'user'
+                ref: 'user',
+                required: true
             }
         }
     ]
