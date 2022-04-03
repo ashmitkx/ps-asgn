@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { dateParse } from './utils/dateParse';
 
 function Person({ otherUser, lastMessage, open, onClick }) {
-    const timestamp = dateParse(lastMessage.timestamp);
-    const timestampWidth = timestamp.length * 0.75;
+    let timestampWidth = 5;
+    if (lastMessage) timestampWidth = dateParse(lastMessage.timestamp).length * 0.75;
 
     let msgText = lastMessage?.text;
     if (msgText && msgText.length > 27 - timestampWidth)
