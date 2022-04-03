@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+  color: inherit;
+  background: none;
+  font: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  display: block;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+hr {
+  border: none;
+}
+
+input[type=text] {
+    background: none;
+    border: none;
+    outline: none;
+    display: block;
+    font: inherit;
+    color: inherit;
+    width: 100%; 
+}
+
+body {
+    background: #111;
+    color: #ddd;
+    height: 90vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#root {
+    height: 100%;
+}
+
+.App {
+    margin: 2em auto;
+    width: 70%;
+    min-width: 500px;
+    height: 100%;
+}
+
+.chatspace {
+    border-radius: 8px;
+    overflow: hidden;
+    
+    height: 100%;
+    display: flex;
+}
+
+.useraccept {
+    margin: auto;
+    width: 500px;
+    background: #393939;
+    padding: 1em;
+    border-radius: 8px;
+    
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1.5em;
+}
+
+.useraccept label {
+    font-size: 1.5rem;
+}
+
+.useraccept .error {
+    background: rgba(178, 11, 11, 0.338);
+    padding: .3em .5em;
+    border-radius: 8px;
+}
+
+.useraccept input {
+    border-bottom: 1px solid #999999b9;
+}
+
+.useraccept div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+
+.useraccept input {
+    padding: 4px;
+}
+
+.useraccept button {
+    font-size: 1.25rem;
+    width: 2em;
+    border-radius: 4px;
+}
+
+
+main {
+    padding: .75em;
+}
+
+aside {
+    width: 25%;
+    height: 100%;
+    background: #393939;
+    overflow-y: auto;
+}
+
+input[type='text'] {
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+button:hover, button:focus {
+    background: #464646ae;
+}
+
+.person {
+    padding: .5em .75em;
+    width: 100%;
+    
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1em;
+    
+    border-bottom: 1px solid #999999b9;
+}
+
+.person.open {
+    background: #565656b3;
+}
+
+.person .msg {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.person .handle {
+    font-size: 1.2rem;
+}
+
+.person .msgtext {
+    font-size: .9rem;
+}
+
+.person .msgtime {
+    font-size: 0.7em;
+    color: #c7c7c7da;
+}
+
+.person .msg{
+    display: flex;
+    justify-content: space-between;
+}
+
+main {
+    width: 75%;
+    height: 100%;
+    background: #2e2e2e;
+    
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.nochat span {
+    margin: 33% 0;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.messages {
+    display: flex;
+    flex-flow: column;
+    gap: .75em;
+    
+    position: relative;
+    overflow-y: auto;
+    margin-bottom: .75em;
+}
+
+.message  {
+    min-width: 40%;
+    max-width: 80%;
+    background: #393939;
+    
+    border-radius: 4px;
+    
+    padding: .25em .5em;
+    align-self: flex-start;
+    
+    display: flex;
+    justify-content: space-between;
+    gap: .25em;
+}
+
+.message.inverted {
+    align-self: flex-end;
+}
+
+.message .text {
+    font-size: 1.2rem;
+    max-width: 90%;
+    word-wrap: break-word;
+}
+
+.message .timestamp {
+    font-size: 0.7em;
+    color: #c7c7c7da;
+    align-self: flex-end;
+}
+
+.chatbox {
+    background: #393939;
+    border-radius: 4px;
+    padding: .5em;
+    
+    display: flex;
+    gap: .5em;
+}
+
+.chatbox .reload {
+    font-size: 1.25rem;
+    width: 2em;
+    border-radius: 4px;
+}
+
+.chatform {
+    flex-grow: 1;
+    display: flex;
+    gap: .5em;
+}
+
+.chatform button {
+    font-size: 1.25rem;
+    width: 2em;
+    border-radius: 4px;
+}
