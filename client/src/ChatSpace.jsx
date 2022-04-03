@@ -55,7 +55,7 @@ function Messages({ messagesState, openChat: chatId, currUser }) {
     useEffect(scrollToBottom, [messages]);
     useEffect(() => {
         async function getChat() {
-            const res = await axios.get(`http://localhost:5000/api/v1/chats/${chatId}`);
+            const res = await axios.get(`/api/v1/chats/${chatId}`);
             setMessages(res.data);
         }
         getChat();
@@ -93,7 +93,7 @@ function ChatBox({ messagesState, chatId, currUser }) {
 
         try {
             const body = { userId: currUser._id, text: newMsg };
-            const res = await axios.post(`http://localhost:5000/api/v1/chats/${chatId}`, body);
+            const res = await axios.post(`/api/v1/chats/${chatId}`, body);
 
             messages.push(res.data);
         } catch (e) {
@@ -107,7 +107,7 @@ function ChatBox({ messagesState, chatId, currUser }) {
     async function reloadChat(e) {
         e.preventDefault();
 
-        const res = await axios.get(`http://localhost:5000/api/v1/chats/${chatId}`);
+        const res = await axios.get(`/api/v1/chats/${chatId}`);
         setMessages(res.data);
     }
 
@@ -140,7 +140,7 @@ function ChatSpace({ currUser }) {
 
     useEffect(() => {
         async function getChats() {
-            const res = await axios.get(`http://localhost:5000/api/v1/users/${currUser._id}/chats`);
+            const res = await axios.get(`/api/v1/users/${currUser._id}/chats`);
             setPersons(res.data);
         }
         getChats();

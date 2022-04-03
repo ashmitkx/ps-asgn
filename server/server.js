@@ -1,3 +1,4 @@
+import { resolve } from 'path';
 import mongoose from 'mongoose';
 import express from 'express';
 import cors from 'cors';
@@ -28,7 +29,18 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
+app.use(express.static(resolve('./build')));
+
+// Upgrade http to https on heroku
+if (isProdEnv)
+    app.use((req, res, next) => {
+        if (req.header('x-forwarded-proto') !== 'https')
+            res.redirect(`https://${req.header('host')}${req.url}`);
+        else next();
+    });
+
 app.use('/api/v1/chats', chatsRouter);
 app.use('/api/v1/users', usersRouter);
+app.get('/*', (req, res) => res.sendFile(resolve('./build/index.html')));
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));

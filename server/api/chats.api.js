@@ -1,6 +1,5 @@
 import { Chat } from '../models/chat.model.js';
 
-// unused
 export async function createChat(req, res, next) {
     const { userIds } = req.body;
 
