@@ -8,7 +8,7 @@ Currently, it does not support creation of new users. Instead, it has three pre-
 
 1. Go to [mighty-atoll-93874.herokuapp.com](https://mighty-atoll-93874.herokuapp.com/).
 2. Enter one of 'Michael', 'Jim', or 'Dwight' as the handle. You can use multiple sessions, each for a different username.
-3. Type some messages. Since this app does not use websockets, you will have to press the reload button for new messages to appear.
+3. Type some messages (caution: they are **publically visible**). Since this app does not use websockets, you will have to press the refresh button (located in the chatbox) for new messages to appear.
 
 ## How to clone:
 
